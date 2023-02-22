@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 public class OrderRequest {
 
     @Step("Создание заказа")
-    public static Response createOrder(Ingredients ingredients, String token){
+    public static Response createOrder(Ingredients ingredients, String token) {
         return given()
                 .header("Content-type", "application/json")
                 .header("authorization", token)
@@ -20,7 +20,7 @@ public class OrderRequest {
     }
 
     @Step("Получение заказа")
-    public static Response getUserOrder(String token){
+    public static Response getUserOrder(String token) {
         return given()
                 .header("Content-type", "application/json")
                 .header("Authorization", token)

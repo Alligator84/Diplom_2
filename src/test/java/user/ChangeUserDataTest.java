@@ -15,6 +15,7 @@ public class ChangeUserDataTest extends BaseTest {
     private Autorization autorization;
     private String token;
     private ChangeUserData changeUserData;
+
     @Before
     public void beforeTest() {
         autorization = new Autorization();
@@ -22,7 +23,7 @@ public class ChangeUserDataTest extends BaseTest {
     }
 
     @Test
-    public void successfulChangeEmailWithAuthorization(){
+    public void successfulChangeEmailWithAuthorization() {
         changeUserData = new ChangeUserData(autorization.getName(), "newemail@test.com");
         Response response = UserDataChangeRequest.changeUserData(changeUserData, token);
         String email = response.then().extract().path("user.email");
@@ -31,7 +32,7 @@ public class ChangeUserDataTest extends BaseTest {
     }
 
     @Test
-    public void successfulChangeNameWithAuthorization(){
+    public void successfulChangeNameWithAuthorization() {
         changeUserData = new ChangeUserData("newName", autorization.getEmail());
         Response response = UserDataChangeRequest.changeUserData(changeUserData, token);
         String name = response.then().extract().path("user.name");
@@ -40,7 +41,7 @@ public class ChangeUserDataTest extends BaseTest {
     }
 
     @Test
-    public void errorChangeEmailNoAuthorization(){
+    public void errorChangeEmailNoAuthorization() {
         changeUserData = new ChangeUserData(autorization.getName(), "newemail@test.com");
         Response response = UserDataChangeRequest.changeUserData(changeUserData, "");
         String message = response.then().extract().path("message");
@@ -49,7 +50,7 @@ public class ChangeUserDataTest extends BaseTest {
     }
 
     @Test
-    public void errorChangeNameNoAuthorization(){
+    public void errorChangeNameNoAuthorization() {
         changeUserData = new ChangeUserData("newName", autorization.getEmail());
         Response response = UserDataChangeRequest.changeUserData(changeUserData, "");
         String message = response.then().extract().path("message");
@@ -58,7 +59,7 @@ public class ChangeUserDataTest extends BaseTest {
     }
 
     @After
-    public void cleanUp(){
+    public void cleanUp() {
         UserRequest.deleteUser(token);
     }
 }

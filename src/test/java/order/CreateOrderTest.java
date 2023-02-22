@@ -22,7 +22,7 @@ public class CreateOrderTest extends BaseTest {
     }
 
     @Test
-    public void successfulCreateOrder(){
+    public void successfulCreateOrder() {
         Ingredients ingredients = new Ingredients(id);
         Response response = OrderRequest.createOrder(ingredients, token);
         Boolean success = response.then().extract().path("success");
@@ -32,7 +32,7 @@ public class CreateOrderTest extends BaseTest {
     }
 
     @Test
-    public void successfulCreateOrderNoAuthorization(){
+    public void successfulCreateOrderNoAuthorization() {
         Ingredients ingredients = new Ingredients(id);
         Response response = OrderRequest.createOrder(ingredients, "");
         Boolean success = response.then().extract().path("success");
@@ -41,7 +41,7 @@ public class CreateOrderTest extends BaseTest {
     }
 
     @Test
-    public void errorCreateOrderWithoutIngredients(){
+    public void errorCreateOrderWithoutIngredients() {
         Ingredients ingredients = new Ingredients("");
         Response response = OrderRequest.createOrder(ingredients, token);
         String message = response.then().extract().path("message");
@@ -50,14 +50,14 @@ public class CreateOrderTest extends BaseTest {
     }
 
     @Test
-    public void errorCreateOrderWrongHashOfIngredients(){
+    public void errorCreateOrderWrongHashOfIngredients() {
         Ingredients ingredients = new Ingredients("wrong id");
         Response response = OrderRequest.createOrder(ingredients, token);
         Assert.assertEquals(500, response.then().extract().statusCode());
     }
 
     @After
-    public void cleanUp(){
+    public void cleanUp() {
         UserRequest.deleteUser(token);
     }
 }

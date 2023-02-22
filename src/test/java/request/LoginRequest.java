@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 public class LoginRequest {
 
     @Step("Логин пользователя")
-    public static Response login (Autorization autorization){
+    public static Response login(Autorization autorization) {
         return given()
                 .header("Content-type", "application/json")
                 .body(autorization)

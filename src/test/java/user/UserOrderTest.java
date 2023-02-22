@@ -20,13 +20,14 @@ public class UserOrderTest extends BaseTest {
     }
 
     @Test
-    public void successGetUserOrder(){
+    public void successGetUserOrder() {
         Response response = OrderRequest.getUserOrder(token);
         Assert.assertEquals(200, response.then().extract().statusCode());
         Assert.assertTrue(response.then().extract().path("success"));
     }
+
     @Test
-    public void getUserOrderNoAuthorization(){
+    public void getUserOrderNoAuthorization() {
         Response response = OrderRequest.getUserOrder("");
         String message = response.then().extract().path("message");
         Assert.assertEquals(401, response.then().extract().statusCode());
@@ -34,7 +35,7 @@ public class UserOrderTest extends BaseTest {
     }
 
     @After
-    public void cleanUp(){
+    public void cleanUp() {
         UserRequest.deleteUser(token);
     }
 }

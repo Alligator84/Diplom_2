@@ -9,7 +9,7 @@ public class BaseTest {
     public static final String BASE_URI = Util.BASE_URL;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         RestAssured.baseURI = BASE_URI;
     }
 }

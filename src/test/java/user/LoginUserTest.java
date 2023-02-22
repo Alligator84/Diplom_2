@@ -30,7 +30,7 @@ public class LoginUserTest extends BaseTest {
     }
 
     @Test
-    public void errorLoginWithWrongEmail(){
+    public void errorLoginWithWrongEmail() {
         Autorization autorization = new Autorization();
         autorization.setEmail("121212@121212.ru");
         Response response = LoginRequest.login(autorization);
@@ -38,8 +38,9 @@ public class LoginUserTest extends BaseTest {
         String message = response.then().extract().path("message");
         assertEquals("email or password are incorrect", message);
     }
+
     @Test
-    public void errorLoginWithWrongPassword(){
+    public void errorLoginWithWrongPassword() {
         Autorization autorization = new Autorization();
         autorization.setPassword("88888888");
         Response response = LoginRequest.login(autorization);
@@ -49,7 +50,7 @@ public class LoginUserTest extends BaseTest {
     }
 
     @After
-    public void cleanUp(){
+    public void cleanUp() {
         UserRequest.deleteUser(token);
     }
 }

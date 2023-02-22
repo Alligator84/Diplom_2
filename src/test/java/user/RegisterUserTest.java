@@ -49,7 +49,7 @@ public class RegisterUserTest extends BaseTest {
     }
 
     @Test
-    public void errorRegistrationWithoutEmail(){
+    public void errorRegistrationWithoutEmail() {
         UserRequest.registerNewUser(user);
         user.setEmail(null);
         Response response = UserRequest.registerNewUser(user);
@@ -59,7 +59,7 @@ public class RegisterUserTest extends BaseTest {
     }
 
     @Test
-    public void errorRegistrationWithoutPassword(){
+    public void errorRegistrationWithoutPassword() {
         UserRequest.registerNewUser(user);
         user.setPassword(null);
         Response response = UserRequest.registerNewUser(user);
@@ -69,9 +69,9 @@ public class RegisterUserTest extends BaseTest {
     }
 
     @After
-    public void cleanUser(){
+    public void cleanUser() {
         String token = UserRequest.registerNewUser(user).then().extract().path("accessToken");
-        if (token != null){
+        if (token != null) {
             UserRequest.deleteUser(token);
         }
     }

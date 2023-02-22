@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 public class UserRequest {
 
     @Step("Регистрация нового пользователя")
-    public static Response registerNewUser (Human user){
+    public static Response registerNewUser(Human user) {
         return given()
                 .header("Content-type", "application/json")
                 .body(user)
@@ -19,7 +19,7 @@ public class UserRequest {
     }
 
     @Step("Удаление пользователя")
-    public static void deleteUser (String token){
+    public static void deleteUser(String token) {
         given()
                 .header("Content-type", "application/json")
                 .header("authorization", token)

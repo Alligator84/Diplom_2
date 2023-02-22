@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 public class UserDataChangeRequest {
 
     @Step("Изменение данных пользователя")
-    public static Response changeUserData (ChangeUserData changeUserData, String token){
+    public static Response changeUserData(ChangeUserData changeUserData, String token) {
         return given()
                 .header("Content-type", "application/json")
                 .header("Authorization", token)
