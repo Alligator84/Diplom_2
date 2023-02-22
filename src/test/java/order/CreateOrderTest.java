@@ -1,8 +1,8 @@
-package Order;
+package order;
 
-import Request.OrderRequest;
-import Request.UserRequest;
-import User.BaseTest;
+import request.OrderRequest;
+import request.UserRequest;
+import user.BaseTest;
 import domain.Autorization;
 import domain.Ingredients;
 import io.restassured.response.Response;

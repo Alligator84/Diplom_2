@@ -1,7 +1,7 @@
-package User;
+package user;
 
-import Request.UserDataChangeRequest;
-import Request.UserRequest;
+import request.UserDataChangeRequest;
+import request.UserRequest;
 import domain.Autorization;
 import domain.ChangeUserData;
 import io.restassured.response.Response;
@@ -12,9 +12,9 @@ import org.junit.Test;
 
 public class ChangeUserDataTest extends BaseTest {
 
-    Autorization autorization;
+    private Autorization autorization;
     private String token;
-    ChangeUserData changeUserData;
+    private ChangeUserData changeUserData;
     @Before
     public void beforeTest() {
         autorization = new Autorization();

@@ -1,6 +1,6 @@
-package User;
+package user;
 
-import Request.UserRequest;
+import request.UserRequest;
 import com.github.javafaker.Faker;
 import domain.User;
 import io.restassured.response.Response;

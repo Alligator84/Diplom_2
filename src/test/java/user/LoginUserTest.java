@@ -1,7 +1,7 @@
-package User;
+package user;
 
-import Request.LoginRequest;
-import Request.UserRequest;
+import request.LoginRequest;
+import request.UserRequest;
 import domain.Autorization;
 import io.restassured.response.Response;
 import org.junit.After;
